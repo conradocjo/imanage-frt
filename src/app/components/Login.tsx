@@ -1,15 +1,28 @@
 "use client";
 
-import {signIn} from "next-auth/react"
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 const Login = () => {
 
+    const searchParams = useSearchParams()
+    const error = searchParams.get('error')
 
     async function logar(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
         const formData = new FormData(event.currentTarget)
-        console.log(formData.get("user"))
-        console.log(formData.get("password"))
+
+        const data = {
+            username: formData.get("username"),
+            password: formData.get("password")
+        }
+
+        signIn("credentials",
+            {
+                ...data,
+                callbackUrl: "/vault"
+            }
+        )
     }
 
     return (
@@ -19,7 +32,7 @@ const Login = () => {
                 <h2 className="font-bold text-xl mb-3 text-slate-800">Bem vindo ao IManage</h2>
                 <input
                     type="text"
-                    name="user"
+                    name="username"
                     placeholder="Usuario"
                     className="input input-primary bg-white text-slate-800" />
                 <input
@@ -28,7 +41,10 @@ const Login = () => {
                     placeholder="Senha"
                     className="input input-primary bg-white text-slate-800" />
                 <button type="submit" className="btn btn-primary">Login</button>
+                {error === 'CredentialsSignin' && <div className="text-red-500 flex justify-center">Erro no login.</div>}
             </form>
+
+
         </>
     );
 
