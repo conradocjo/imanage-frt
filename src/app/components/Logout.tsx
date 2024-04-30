@@ -4,8 +4,8 @@ import { signOut } from "next-auth/react";
 
 export default function Logout() {
     return <>
-        <button className="btn btn-outline" onClick={() => signOut()}>
+        <a href="#" className="" onClick={() => signOut()}>
             Sair
-        </button>
+        </a>
     </>
 }
