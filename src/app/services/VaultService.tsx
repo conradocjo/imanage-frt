@@ -1,3 +1,5 @@
+
+
 interface IVault {
     system: String,
     password: String,
@@ -8,7 +10,9 @@ interface IVault {
 
 export async function getVaults(token: any): Promise<IVault[]> {
 
-    const response = await fetch("http://192.168.1.30:8080/v1/vault/get-vaults",
+   console.log(process.env.BACK_URL + '/v1/vault' + "/get-vaults")
+
+    const response = await fetch(process.env.BACK_URL + '/v1/vault' + "/get-vaults",
         {
             method: 'GET',
             headers: {
@@ -24,4 +28,28 @@ export async function getVaults(token: any): Promise<IVault[]> {
         return null;
     })
     return response;
+}
+
+export async function updateVaults(token: any, vault: any) {
+
+    console.log(process.env.BACK_URL + '/v1/vault' + '/update-vaults')
+    const response = await fetch(process.env.BACK_URL + '/v1/vault' + '/update-vaults',
+        {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': token,
+                'system': vault.system,
+                'password': vault.password,
+                'vaultId': vault.id
+            }
+        }
+    ).then(response => {
+        return response.json();
+    }).catch(error => {
+        console.log(error)
+        return null;
+    })
+    return response;
+
 }

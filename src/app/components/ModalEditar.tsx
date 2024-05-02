@@ -1,9 +1,10 @@
 "use client";
 
+import { updateVaults } from "../services/VaultService";
+
 
 
 export default function ModalEditar(props: any) {
-    console.log(props)
 
     async function gravar(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -16,17 +17,20 @@ export default function ModalEditar(props: any) {
             password: formData.get("password")
         }
 
-        console.log(data.system)
+        const response = updateVaults(props.token,data);
+        console.log(response)
     }
 
     return <>
 
+
+
         <a href="#" className="text-green-600" onClick={() => {
             if (document) {
-                (document.getElementById('confirm_edition') as HTMLFormElement).showModal();
+                (document.getElementById('confirm_edition' + props.id) as HTMLFormElement).showModal();
             }
         }}>Editar</a>
-        <dialog id="confirm_edition" className="modal">
+        <dialog id={'confirm_edition' + props.id} className="modal">
             <div className="modal-box">
                 <h3 className="font-bold text-3xl text-slate-400">Editar Vault</h3>
 
@@ -41,18 +45,24 @@ export default function ModalEditar(props: any) {
                             className="rounded-sm 
                         bg-white input 
                         text-white"
-                            name="vaultId" value={(document.getElementById('vaultId') as HTMLFormElement)} />
+                            name="vaultId"
+                            onChange={(event)=>this.inputChangedHandler(event)}
+                            value={props.id} />
 
                         <input type="text"
                             className="rounded-sm 
                         bg-white input 
                         text-slate-950"
-                            name="system" value={props.system} />
+                            name="system"
+                            onChange={(event)=>this.inputChangedHandler(event)}
+                            value={props.system} />
                         <input type="text"
                             className="rounded-sm 
                         bg-white input 
                         text-slate-950"
-                            name="password" value={props.password} />
+                            name="password"
+                            onChange={(event)=>this.inputChangedHandler(event)}
+                            value={props.password} />
 
                         <div className="flex flex-row justify-center">
                             <button className="bg-slate-400
@@ -64,7 +74,7 @@ export default function ModalEditar(props: any) {
                              hover:text-slate-400 
                              btn m-1" type="button" onClick={() => {
                                     if (document) {
-                                        (document.getElementById('confirm_edition') as HTMLFormElement).close();
+                                        (document.getElementById('confirm_edition' + props.id) as HTMLFormElement).close();
                                     }
                                 }}>Fechar</button>
                         </div>
