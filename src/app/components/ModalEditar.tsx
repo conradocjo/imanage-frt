@@ -12,12 +12,14 @@ export default function ModalEditar(props: any) {
         const formData = new FormData(event.currentTarget)
 
         const data = {
-            vaultId: formData.get("vaultId"),
-            system: formData.get("system"),
-            password: formData.get("password")
+            vaultId: props.id,
+            system: formData.get("system") != null && formData.get("system") != '' ? formData.get("system") : props.system,
+            password: formData.get("password") != null && formData.get("password") != '' ? formData.get("password") : props.password
         }
 
-        const response = updateVaults(props.token,data);
+        console.log(data)
+
+        const response = updateVaults(props.token, data);
         console.log(response)
     }
 
@@ -46,7 +48,7 @@ export default function ModalEditar(props: any) {
                         bg-white input 
                         text-white"
                             name="vaultId"
-                            onChange={(event)=>this.inputChangedHandler(event)}
+                            onChange={(event) => this.inputChangedHandler(event)}
                             value={props.id} />
 
                         <input type="text"
@@ -54,15 +56,15 @@ export default function ModalEditar(props: any) {
                         bg-white input 
                         text-slate-950"
                             name="system"
-                            onChange={(event)=>this.inputChangedHandler(event)}
-                            value={props.system} />
+                            placeholder={props.system}
+                        />
                         <input type="text"
                             className="rounded-sm 
                         bg-white input 
                         text-slate-950"
                             name="password"
-                            onChange={(event)=>this.inputChangedHandler(event)}
-                            value={props.password} />
+                            placeholder={props.password}
+                        />
 
                         <div className="flex flex-row justify-center">
                             <button className="bg-slate-400
