@@ -1,5 +1,5 @@
 export async function signIn(userName: any, password: any) {
-    const response = await fetch("http://192.168.1.30:8080/v1/users/sign-in",
+    const response = await fetch("http://localhost:8080/v1/users/sign-in",
         {
             method: 'POST',
             headers: {

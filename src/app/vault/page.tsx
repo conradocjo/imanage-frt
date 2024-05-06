@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
 import Header from "../components/Header"
 import ModalEditar from "../components/ModalEditar"
+import ModalNovo from "../components/ModalNovo"
 import { getVaults } from "../services/VaultService"
 
 
@@ -49,15 +50,20 @@ export default async function Page() {
         <div className=" overflow-x-auto h-screen  bg-white ">
             <Header />
             <br />
+
+
+
             <div className="bg-black-800 
                 w-100 justify-center items-center
                 max-w-full flex ">
 
 
+
+
                 <table className="table table-pin-rows text-black border border-slate-600  w-5/6 overflow-x-auto">
                     <thead>
                         <tr className="text-black ">
-                            <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">ID</th>
+                            <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500"><ModalNovo />   ID </th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Sistema</th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Senha</th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Data de Criação</th>
