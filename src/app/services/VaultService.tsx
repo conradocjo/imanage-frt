@@ -42,10 +42,10 @@ export async function newVault(token: any, vault: any): Promise<string> {
         {
             method: 'POST',
             headers: {
+                'system': vault.system,
+                'password': vault.password,
                 'Content-type': 'application/json',
                 'Authorization': token,
-                'system': vault.system,
-                'password': vault.password
             }
         }
     ).then(response => {
@@ -68,11 +68,11 @@ export async function updateVaults(token: any, vault: any): Promise<string> {
         {
             method: 'PUT',
             headers: {
-                'Content-type': 'application/json',
-                'Authorization': token,
                 'system': vault.system,
                 'password': vault.password,
-                'vaultId': vault.id
+                'vaultId': vault.vaultId,
+                'Content-type': 'application/json',
+                'Authorization': token,
             },
         }
     ).then(response => {

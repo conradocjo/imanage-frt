@@ -17,10 +17,12 @@ export default function ModalEditar(props: any) {
             password: formData.get("password") != null && formData.get("password") != '' ? formData.get("password") : props.password
         }
 
-        console.log(data)
 
-        const response = updateVaults(props.token, data);
-        console.log(response)
+        const response = updateVaults(props.token, data)
+            .then(x=>alert('Registro atualizado com sucesso.'))
+            .then(x => window.location.reload());
+
+
     }
 
     return <>

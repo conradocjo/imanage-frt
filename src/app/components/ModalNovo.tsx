@@ -12,14 +12,16 @@ export default function ModalNovo(props: any) {
         const formData = new FormData(event.currentTarget)
 
         const data = {
-            system: formData.get("system") != null && formData.get("system") != '' ? formData.get("system") : props.system,
-            password: formData.get("password") != null && formData.get("password") != '' ? formData.get("password") : props.password
+            system: formData.get("system"),
+            password: formData.get("password")
         }
 
-        console.log(data)
 
-        const response = newVault(props.token, data);
-        console.log(response)
+        const response = newVault(props.token, data)
+            .then(x => alert('Registro gravado com sucesso.'))
+            .then(x => window.location.reload());
+
+
     }
 
     return <>
@@ -50,6 +52,7 @@ export default function ModalNovo(props: any) {
                         text-slate-950"
                             name="system"
                             placeholder='Sistema'
+                            required
                         />
                         <input type="text"
                             className="rounded-sm 
@@ -57,6 +60,7 @@ export default function ModalNovo(props: any) {
                         text-slate-950"
                             name="password"
                             placeholder='Senha'
+                            required
                         />
 
                         <div className="flex flex-row justify-center">

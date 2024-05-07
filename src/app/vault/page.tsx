@@ -63,7 +63,7 @@ export default async function Page() {
                 <table className="table table-pin-rows text-black border border-slate-600  w-5/6 overflow-x-auto">
                     <thead>
                         <tr className="text-black ">
-                            <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500"><ModalNovo />   ID </th>
+                            <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500"><ModalNovo token={session.user?.name} />   ID </th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Sistema</th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Senha</th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Data de Criação</th>
