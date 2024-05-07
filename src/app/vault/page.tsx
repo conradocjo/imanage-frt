@@ -29,7 +29,7 @@ export default async function Page() {
             <tr key={index} className="hover:bg-slate-200 text-center">
                 <td className="">{x.id}</td>
                 <td className="">{x.system}</td>
-                <td className="">{x.password}</td>
+                <td className="text-white hover:text-black">{atob(atob(x.password).substring(8,x.password.length))}</td>
                 <td className="">{x.creationDate}</td>
                 <td className="">{x.updateDate}</td>
                 <td className="">
@@ -51,19 +51,14 @@ export default async function Page() {
             <Header />
             <br />
 
-
-
             <div className="bg-black-800 
                 w-100 justify-center items-center
                 max-w-full flex ">
 
-
-
-
                 <table className="table table-pin-rows text-black border border-slate-600  w-5/6 overflow-x-auto">
                     <thead>
                         <tr className="text-black ">
-                            <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500"><ModalNovo token={session.user?.name} />   ID </th>
+                            <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500"><ModalNovo token={session.user?.name} />    </th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Sistema</th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Senha</th>
                             <th className="text-center bg-slate-400 border border-r-0 border-l-0 border-b-4 border-slate-500">Data de Criação</th>

@@ -11,10 +11,11 @@ export default function ModalEditar(props: any) {
 
         const formData = new FormData(event.currentTarget)
 
+
         const data = {
             vaultId: props.id,
             system: formData.get("system") != null && formData.get("system") != '' ? formData.get("system") : props.system,
-            password: formData.get("password") != null && formData.get("password") != '' ? formData.get("password") : props.password
+            password: formData.get("password") != null && formData.get("password") != '' ? formData.get("password") : atob(atob(props.password).substring(8,props.password.length))
         }
 
 
