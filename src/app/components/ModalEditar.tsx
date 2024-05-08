@@ -50,7 +50,6 @@ export default function ModalEditar(props: any) {
                         bg-white input 
                         text-white"
                             name="vaultId"
-                            onChange={(event) => this.inputChangedHandler(event)}
                             value={props.id} />
 
                         <input type="text"

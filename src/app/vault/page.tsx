@@ -7,7 +7,6 @@ import ModalEditar from "../components/ModalEditar"
 import ModalNovo from "../components/ModalNovo"
 
 
-const env = process.env.VAULT_SERVICE_URL;
 
 export default async function Page() {
     const session = await getServerSession()
@@ -15,8 +14,6 @@ export default async function Page() {
     if (!session) {
         redirect("/")
     }
-
-
 
     const response = await getVaults(session.user?.name)
         .then(response => {

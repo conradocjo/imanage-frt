@@ -1,10 +1,10 @@
 
 interface IVault {
-    system: String,
-    password: String,
-    creationDate: String,
-    updateDate: String,
-    id: String
+    system: string,
+    password: string,
+    creationDate: string,
+    updateDate: string,
+    id: string
 }
 
 const env = process.env.NEXT_PUBLIC_VAULT_SERVICE_URL;
