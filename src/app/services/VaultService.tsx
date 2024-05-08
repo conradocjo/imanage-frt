@@ -1,5 +1,4 @@
 
-
 interface IVault {
     system: String,
     password: String,
@@ -8,13 +7,13 @@ interface IVault {
     id: String
 }
 
-const env = process.env.BACK_URL;
+const env = process.env.NEXT_PUBLIC_VAULT_SERVICE_URL;
 
 export async function getVaults(token: any): Promise<IVault[]> {
 
-    console.log(env + '/v1/vault/get-vaults')
+    console.log(`${env}/v1/vault/get-vaults`)
 
-    const response = await fetch('http://localhost:8080' + '/v1/vault' + "/get-vaults",
+    const response = await fetch(`${env}/v1/vault/get-vaults`,
         {
             method: 'GET',
             headers: {
@@ -37,8 +36,8 @@ export async function newVault(token: any, vault: any): Promise<string> {
 
     console.log(vault)
     console.log(token)
-    console.log('http://localhost:8080/v1/vault/new-pass')
-    const response = await fetch('http://localhost:8080/v1/vault/new-pass',
+    console.log(`${env}/v1/vault/new-pass`)
+    const response = await fetch(`${env}/v1/vault/new-pass`,
         {
             method: 'POST',
             headers: {
@@ -63,8 +62,8 @@ export async function updateVaults(token: any, vault: any): Promise<string> {
 
     console.log(vault)
     console.log(token)
-    console.log('http://localhost:8080/v1/vault/update-vaults')
-    const response = await fetch('http://localhost:8080/v1/vault/update-vaults',
+    console.log(`${env}/v1/vault/update-vaults`)
+    const response = await fetch(`${env}/v1/vault/update-vaults`,
         {
             method: 'PUT',
             headers: {

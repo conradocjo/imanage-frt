@@ -1,5 +1,6 @@
 export async function signIn(userName: any, password: any) {
-    const response = await fetch("http://localhost:8080/v1/users/sign-in",
+
+    const response = await fetch(process.env.NEXT_PUBLIC_VAULT_SERVICE_URL + "/v1/users/sign-in",
         {
             method: 'POST',
             headers: {
