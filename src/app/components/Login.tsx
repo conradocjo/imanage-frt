@@ -1,12 +1,13 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
+// import { Suspense } from "react";
 
 const Login = () => {
 
-    const searchParams = useSearchParams()
-    const error = searchParams.get('error')
+    // const searchParams = useSearchParams()
+    // const error = searchParams.get('error')
 
     async function logar(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -42,7 +43,7 @@ const Login = () => {
                         placeholder="Senha"
                         className="input input-primary bg-white text-slate-800" />
                     <button type="submit" className="btn btn-primary">Login</button>
-                    {error === 'CredentialsSignin' && <div className="text-red-500 flexjustify-center">Erro no login.</div>}
+                    {/* <Suspense fallback={error === 'CredentialsSignin' && <div className="text-red-500 flexjustify-center">Erro no login.</div>}></Suspense> */}
                 </form>
             </div>
 

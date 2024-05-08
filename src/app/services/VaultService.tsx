@@ -11,7 +11,6 @@ const env = process.env.NEXT_PUBLIC_VAULT_SERVICE_URL;
 
 export async function getVaults(token: any): Promise<IVault[]> {
 
-    console.log(`${env}/v1/vault/get-vaults`)
 
     const response = await fetch(`${env}/v1/vault/get-vaults`,
         {
@@ -25,7 +24,6 @@ export async function getVaults(token: any): Promise<IVault[]> {
     ).then(response => {
         return response.json();
     }).catch(erro => {
-        console.log(erro)
         return null;
     })
     return response;
@@ -34,9 +32,6 @@ export async function getVaults(token: any): Promise<IVault[]> {
 export async function newVault(token: any, vault: any): Promise<string> {
 
 
-    console.log(vault)
-    console.log(token)
-    console.log(`${env}/v1/vault/new-pass`)
     const response = await fetch(`${env}/v1/vault/new-pass`,
         {
             method: 'POST',
@@ -50,19 +45,14 @@ export async function newVault(token: any, vault: any): Promise<string> {
     ).then(response => {
         return response.json();
     }).catch(error => {
-        console.log(error)
         return null;
     })
-
     return response;
 
 }
 
-export async function updateVaults(token: any, vault: any): Promise<string> {
+export async function updateVaults(token: any, vault: any): Promise<any> {
 
-    console.log(vault)
-    console.log(token)
-    console.log(`${env}/v1/vault/update-vaults`)
     const response = await fetch(`${env}/v1/vault/update-vaults`,
         {
             method: 'PUT',
@@ -77,9 +67,7 @@ export async function updateVaults(token: any, vault: any): Promise<string> {
     ).then(response => {
         return response.json();
     }).catch(error => {
-        console.log(error)
         return null;
     })
-    return response;
 
 }

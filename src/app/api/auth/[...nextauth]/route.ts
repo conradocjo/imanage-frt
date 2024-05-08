@@ -17,7 +17,6 @@ const handler = NextAuth({
             async authorize(credentials, req) {
                 let login = await signIn(credentials?.username, credentials?.password)
                     .then(response => { return response })
-                    .catch(error => console.log(error))
 
                 return login != null ? {
                     id: '1',
