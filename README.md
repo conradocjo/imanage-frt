@@ -1,3 +1,13 @@
+OBS: O deploy deve ser da pasta completa do projeto na estrutura correta imanage-frt no server, e as urls 
+
+![image](https://github.com/conradocjo/imanage-frt/assets/29169349/f5718837-5a78-407e-a9ab-58aecb8444b7)
+
+
+Devem estar apontadas para prod:
+
+![image](https://github.com/conradocjo/imanage-frt/assets/29169349/b8fa0477-54fc-4966-8906-8f10c940ad59)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
