@@ -1,3 +1,5 @@
+Bem vindo ao IManage (Front End)
+
 ![image](https://github.com/conradocjo/imanage-frt/assets/29169349/2a18ca7b-88c1-40a0-896e-f7d62bec6354)
 
 
@@ -9,3 +11,6 @@ yarn install
 Para iniciar a aplicação no ambiente local:
 yarn dev
 
+A Api que o front consome é:
+
+https://github.com/conradocjo/IManage
